@@ -49,7 +49,7 @@ lcd.setCursor(6,1);
 lcd.print("Prepaid");
 lcd.setCursor(5,2);
 lcd.print("Energy Meter");
-delay(5000);
+delay(1000);
 lcd.clear();
 
 pinMode(load,OUTPUT);//Output for load
@@ -67,6 +67,7 @@ while (unit==0)
  lcd.print("No Balance");
  lcd.setCursor(0,1);
  lcd.print("Recharge Now");
+ delay(10);
  //For recharge (keypad)
 check_keypad();
 // Serial.print(unit);//For Debugging
@@ -142,7 +143,7 @@ sum = 0;
 void check_keypad()
 {
   char key = keypad.getKey();
-  Serial.println(key);//Debugging
+  //Serial.println(key);//Debugging
   
   if (key)
   {
@@ -172,7 +173,12 @@ void check_keypad()
       lcd.print("Enter a valid");
       lcd.setCursor(0,1);
       lcd.print("Recharge Amount");
-      delay(2000);
+      delay(200);
+      lcd.clear();
+      if (unit>0)
+      {
+        Constants();
+      }
     }
   }
     }
