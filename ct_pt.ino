@@ -51,10 +51,8 @@ lcd.setCursor(5,2);
 lcd.print("Energy Meter");
 delay(1000);
 lcd.clear();
-
-pinMode(load,OUTPUT);//Output for load
-
 Constants();
+pinMode(load,OUTPUT);//Output for load
 }
 
 void loop() {
@@ -88,6 +86,8 @@ if (pw>10)   //Assumption: 1 Unit=10 W
   //Serial.println("Entered loop 2");//For Debugging Only
   unit=unit-1;
   pw=0;
+  lcd.clear();
+  Constants();
   }
 //remaining Unit printing
 lcd.setCursor(14,0);
